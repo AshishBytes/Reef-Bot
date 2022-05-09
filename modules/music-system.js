@@ -489,12 +489,12 @@ module.exports = async (client) => {
                 interaction.reply({
                   embeds: [
                     new MessageEmbed()
-                      .setAuthor(
-                        result.author,
-                        interaction.user.displayAvatarURL({
+                      .setAuthor({
+                        name: result.author,
+                        iconURL: interaction.user.displayAvatarURL({
                           dynamic: true,
-                        })
-                      )
+                        }),
+                      })
                       .setColor(ee.color)
                       .setTitle(result.title)
                       .setDescription(

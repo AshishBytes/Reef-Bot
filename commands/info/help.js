@@ -374,10 +374,10 @@ ${client.allEmojis.help.report} Report**`,
                           client.user.displayAvatarURL()
                         )
                         .setColor(ee.color)
-                        .setAuthor(
-                          `${client.user.username} Help Menu`,
-                          client.user.displayAvatarURL()
-                        )
+                        .setAuthor({
+                          name: `${client.user.username} Help Menu`,
+                          iconURL: client.user.displayAvatarURL(),
+                        })
                         .addFields(
                           {
                             name: `${client.allEmojis.help.info} ┃ Information`,
@@ -781,12 +781,12 @@ ${client.allEmojis.help.report} Report**`,
       return errorLogsChannel.send({
         embeds: [
           new MessageEmbed()
-            .setAuthor(
-              message.guild.name,
-              message.guild.iconURL({
+            .setAuthor({
+              name: message.guild.name,
+              iconURL: message.guild.iconURL({
                 dynamic: true,
-              })
-            )
+              }),
+            })
             .setColor("RED")
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)

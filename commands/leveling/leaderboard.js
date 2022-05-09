@@ -1,15 +1,11 @@
 const config = require(`${process.cwd()}/structures/botconfig/config.json`);
-const {
-  Client,
-  Message,
-  MessageEmbed
-} = require('discord.js');
-const Levels = require('discord-xp');
+const { Client, Message, MessageEmbed } = require("discord.js");
+const Levels = require("discord-xp");
 
 module.exports = {
-  name: 'leaderboard',
+  name: "leaderboard",
   aliases: [],
-  usage: '',
+  usage: "",
   description: "Displays the servers top 5 leveled users!",
   category: "leveling",
   cooldown: 10,
@@ -19,7 +15,7 @@ module.exports = {
   toggleOff: false,
 
   /**
-   * @param {Client} client 
+   * @param {Client} client
    * @param {Message} message
    * @param {String[]} args
    */
@@ -28,37 +24,63 @@ module.exports = {
     try {
       const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
 
-      if (rawLeaderboard.length < 1) return message.reply({ embeds:[new MessageEmbed()
-        .setColor(ee.wrongcolor)
-        .setDescription(`Nobody's in leaderboard yet!`)]});
+      if (rawLeaderboard.length < 1)
+        return message.reply({
+          embeds: [
+            new MessageEmbed()
+              .setColor(ee.wrongcolor)
+              .setDescription(`Nobody's in leaderboard yet!`),
+          ],
+        });
 
-      const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true);
+      const leaderboard = await Levels.computeLeaderboard(
+        client,
+        rawLeaderboard,
+        true
+      );
 
-      const lb = leaderboard.map(e => `**${e.position}. ${e.username}#${e.discriminator}**\n📊 Level: ${e.level}\n♾️ XP: ${e.xp.toLocaleString()}`);
+      const lb = leaderboard.map(
+        (e) =>
+          `**${e.position}. ${e.username}#${e.discriminator}**\n📊 Level: ${
+            e.level
+          }\n♾️ XP: ${e.xp.toLocaleString()}`
+      );
 
-      message.reply({ embeds:[new MessageEmbed()
-        .setTitle(`📊 leaderboard for ${message.guild.name} 📊`)
-        .setDescription(`${lb.join("\n\n")}`)
-        .setColor(ee.color)
-        .setThumbnail(message.guild.iconURL({
-          dynamic: true
-        }))
-        .setFooter(ee.footertext, ee.footericon)
-        .setTimestamp()]});
+      message.reply({
+        embeds: [
+          new MessageEmbed()
+            .setTitle(`📊 leaderboard for ${message.guild.name} 📊`)
+            .setDescription(`${lb.join("\n\n")}`)
+            .setColor(ee.color)
+            .setThumbnail(
+              message.guild.iconURL({
+                dynamic: true,
+              })
+            )
+            .setFooter(ee.footertext, ee.footericon)
+            .setTimestamp(),
+        ],
+      });
     } catch (e) {
-      console.log(String(e.stack).bgRed)
-      const errorLogsChannel = client.channels.cache.get(config.botlogs.errorLogsChannel);
+      console.log(String(e.stack).bgRed);
+      const errorLogsChannel = client.channels.cache.get(
+        config.botlogs.errorLogsChannel
+      );
       return errorLogsChannel.send({
-        embeds: [new MessageEmbed()
-          .setColor("RED")
-          .setAuthor(message.guild.name, message.guild.iconURL({
-            dynamic: true
-          }))
-          .setTitle(`${client.allEmojis.x} Got a Error:`)
-          .setDescription(`\`\`\`${e.stack}\`\`\``)
-          .setFooter(`Having: ${message.guild.memberCount} Users`)
-        ]
-      })
+        embeds: [
+          new MessageEmbed()
+            .setColor("RED")
+            .setAuthor({
+              name: message.guild.name,
+              iconURL: message.guild.iconURL({
+                dynamic: true,
+              }),
+            })
+            .setTitle(`${client.allEmojis.x} Got a Error:`)
+            .setDescription(`\`\`\`${e.stack}\`\`\``)
+            .setFooter(`Having: ${message.guild.memberCount} Users`),
+        ],
+      });
     }
   },
 };

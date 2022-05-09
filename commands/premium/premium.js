@@ -29,7 +29,10 @@ module.exports = {
           new MessageEmbed()
             .setFooter(client.user.username, client.user.displayAvatarURL())
             .setColor(ee.color)
-            .setAuthor(`Premium Features!`, client.user.displayAvatarURL())
+            .setAuthor({
+              name: `Premium Features!`,
+              iconURL: client.user.displayAvatarURL(),
+            })
             .setDescription(`<:utility_cmnds:971048437380436008> Get a Premium For ${client.user} in Your Server!
 <:99:971213021605150810> Get Access to Advanced Features of ${client.user}
 <:announce:971214015667793940> Join Our **[Support Server](${support_Server})** to Get Premium`),

@@ -181,12 +181,12 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor("#FFFF00")
-                .setAuthor(
-                  interaction.guild.name,
-                  interaction.guild.iconURL({
+                .setAuthor({
+                  name: interaction.guild.name,
+                  iconURL: interaction.guild.iconURL({
                     dynamic: true,
-                  })
-                )
+                  }),
+                })
                 .setTitle(`<a:a_r_badge:953908120017588234> Slash Command`)
                 .addField(
                   "**<a:a_dot:954247940963192832> Author**",

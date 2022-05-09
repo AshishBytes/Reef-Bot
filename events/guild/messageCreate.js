@@ -246,12 +246,12 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor(ee.color)
-                .setAuthor(
-                  message.guild.name,
-                  message.guild.iconURL({
+                .setAuthor({
+                  name: message.guild.name,
+                  iconURL: message.guild.iconURL({
                     dynamic: true,
-                  })
-                )
+                  }),
+                })
                 .setTitle(`<a:a_play:954247759848964116> Prefix Command`)
                 .addField(
                   "**<a:a_dot:954247940963192832> Author**",

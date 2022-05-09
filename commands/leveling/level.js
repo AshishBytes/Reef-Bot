@@ -3,15 +3,15 @@ const {
   Client,
   Message,
   MessageEmbed,
-  MessageAttachment
-} = require('discord.js');
-const Levels = require('discord-xp');
-const canvacord = require('canvacord');
+  MessageAttachment,
+} = require("discord.js");
+const Levels = require("discord-xp");
+const canvacord = require("canvacord");
 
 module.exports = {
-  name: 'level',
-  aliases: ['rank', 'xp'],
-  usage: '',
+  name: "level",
+  aliases: ["rank", "xp"],
+  usage: "",
   description: "Returns a level of the user!",
   category: "leveling",
   cooldown: 10,
@@ -21,7 +21,7 @@ module.exports = {
   toggleOff: false,
 
   /**
-   * @param {Client} client 
+   * @param {Client} client
    * @param {Message} message
    * @param {String[]} args
    */
@@ -32,21 +32,31 @@ module.exports = {
 
       const user = await Levels.fetch(target.id, message.guild.id, true);
 
-      if (!user) return message.reply({ embeds:[new MessageEmbed()
-        .setColor(ee.wrongcolor)
-        .setDescription(`The member mentioned does not have any levels within the server.`)]});
+      if (!user)
+        return message.reply({
+          embeds: [
+            new MessageEmbed()
+              .setColor(ee.wrongcolor)
+              .setDescription(
+                `The member mentioned does not have any levels within the server.`
+              ),
+          ],
+        });
 
-      const neededXp = Levels.xpFor(parseInt(user.level) + 1)
+      const neededXp = Levels.xpFor(parseInt(user.level) + 1);
 
-      const img = "https://www.mandatory.gg/wp-content/uploads/news/2020/08/valorant-news-datamine-remake-rematch.jpg";
+      const img =
+        "https://www.mandatory.gg/wp-content/uploads/news/2020/08/valorant-news-datamine-remake-rematch.jpg";
 
       const rank = new canvacord.Rank()
-        .setAvatar(target.displayAvatarURL({
-          dynamic: false,
-          format: 'png',
-          size: 512
-        }))
-      	//.setAvatar(target.displayAvatarURL({format: 'png', size: 512}))
+        .setAvatar(
+          target.displayAvatarURL({
+            dynamic: false,
+            format: "png",
+            size: 512,
+          })
+        )
+        //.setAvatar(target.displayAvatarURL({format: 'png', size: 512}))
         .setBackground("IMAGE", img)
         .setRank(user.position)
         .setLevel(user.level)
@@ -58,25 +68,30 @@ module.exports = {
         .setUsername(target.username)
         .setDiscriminator(target.discriminator);
 
-      rank.build()
-        .then(data => {
-          const attachment = new MessageAttachment(data, "RankCard.png");
-          message.reply({ files: [attachment]});
-        });
+      rank.build().then((data) => {
+        const attachment = new MessageAttachment(data, "RankCard.png");
+        message.reply({ files: [attachment] });
+      });
     } catch (e) {
-      console.log(String(e.stack).bgRed)
-      const errorLogsChannel = client.channels.cache.get(config.botlogs.errorLogsChannel);
+      console.log(String(e.stack).bgRed);
+      const errorLogsChannel = client.channels.cache.get(
+        config.botlogs.errorLogsChannel
+      );
       return errorLogsChannel.send({
-        embeds: [new MessageEmbed()
-          .setColor("RED")
-          .setAuthor(message.guild.name, message.guild.iconURL({
-            dynamic: true
-          }))
-          .setTitle(`${client.allEmojis.x} Got a Error:`)
-          .setDescription(`\`\`\`${e.stack}\`\`\``)
-          .setFooter(`Having: ${message.guild.memberCount} Users`)
-        ]
-      })
+        embeds: [
+          new MessageEmbed()
+            .setColor("RED")
+            .setAuthor({
+              name: message.guild.name,
+              iconURL: message.guild.iconURL({
+                dynamic: true,
+              }),
+            })
+            .setTitle(`${client.allEmojis.x} Got a Error:`)
+            .setDescription(`\`\`\`${e.stack}\`\`\``)
+            .setFooter(`Having: ${message.guild.memberCount} Users`),
+        ],
+      });
     }
   },
 };
