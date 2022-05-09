@@ -29,7 +29,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} Welcome System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`Please mention a channel!`),
           ],
         });
@@ -41,7 +42,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} Welcome System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `Please mention a custom welcome message!\nIf you want to mention the member use \`<@>\`\n If you want mention server name use \`<server>\`\nIf you want mention the member count use \`<count>\`\n\nEg: \`${prefix}set-welcomechannel #channel Welcome <@>, to **<server>**, Now we have **<count> Members**\``
               ),
@@ -68,7 +70,8 @@ module.exports = {
               new MessageEmbed()
                 .setTitle(`${client.allEmojis.y} Welcome System`)
                 .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(
                   `${channel} has been set as the **Welcome Channel**\n**Welcome Message** is \`${Welmsg}\``
                 ),
@@ -93,7 +96,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

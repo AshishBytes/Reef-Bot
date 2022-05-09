@@ -27,7 +27,10 @@ module.exports = {
       message.reply({
         embeds: [
           new MessageEmbed()
-            .setFooter(client.user.username, client.user.displayAvatarURL())
+            .setFooter({
+              text: client.user.username,
+              iconURL: client.user.displayAvatarURL(),
+            })
             .setColor(ee.color)
             .setAuthor({
               name: `Premium Features!`,

@@ -270,7 +270,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.wrongcolor)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setTitle(
                     `${client.allEmojis.x} Something went wrong while, running the: ${prefix}${command.name} command`
                   )
@@ -296,7 +297,8 @@ module.exports = {
           new MessageEmbed()
             //.setColor(ee.wrongcolor)
             .setTitle(`${client.allEmojis.x} ERROR | An error occurred`)
-            //.setFooter(ee.footertext, ee.footericon)
+            //              .setFooter({text:ee.footertext,iconURL: ee.footericon})
+
             .setDescription(`\`\`\`${e.message}\`\`\``),
         ],
       });

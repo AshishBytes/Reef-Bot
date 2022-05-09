@@ -33,7 +33,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.m} You must mention a member to remove the role.`
               ),
@@ -44,7 +45,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} The member mention is not in the server.`
               ),
@@ -58,7 +60,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} You cannot remove roles from this user as thier role is the same or higher then yours.`
               ),
@@ -69,7 +72,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.m} You must mention a role to remove from the member mentioned.`
               ),
@@ -80,7 +84,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} The role mention does not exist.`
               ),
@@ -91,7 +96,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} You cannot remove this role as it is the same or above your current highest role.`
               ),
@@ -102,7 +108,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} I cannot remove this roles as this role is the same or higher then mine.`
               ),
@@ -115,7 +122,8 @@ module.exports = {
         embeds: [
           new MessageEmbed()
             .setColor(ee.color)
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setDescription(
               `${client.allEmojis.y} Successfully Removed ${role} from ${mentionedMember}.`
             ),
@@ -138,7 +146,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

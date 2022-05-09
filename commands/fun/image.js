@@ -27,7 +27,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.m} **Please specify the name of the image you want to search.**`
               ),
@@ -48,7 +49,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.m} **Unable to fetch the requested image.**`
               ),
@@ -59,7 +61,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} Error ${res.status}: ${res.statusText}`
               ),
@@ -72,7 +75,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`${client.allEmojis.m} **No results found.**`),
           ],
         });
@@ -81,7 +85,8 @@ module.exports = {
         embeds: [
           new MessageEmbed()
             .setColor(ee.color)
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setImage(res.items[0].link)
             .setTitle(`${args.join(" ")}`),
         ],

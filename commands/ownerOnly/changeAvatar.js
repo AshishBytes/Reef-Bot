@@ -1,17 +1,13 @@
 const config = require(`${process.cwd()}/structures/botconfig/config.json`);
-const {
-  Client,
-  Message,
-  MessageEmbed
-} = require('discord.js');
-const fs = require('fs');
-const fetch = require('node-fetch');
+const { Client, Message, MessageEmbed } = require("discord.js");
+const fs = require("fs");
+const fetch = require("node-fetch");
 
 module.exports = {
-  name: 'change-avatar',
+  name: "change-avatar",
   aliases: ["changeavatar"],
-  usage: '',
-  description: '',
+  usage: "",
+  description: "",
   category: "ownerOnly",
   cooldown: 0,
   userPermissions: "",
@@ -20,7 +16,7 @@ module.exports = {
   toggleOff: false,
 
   /**
-   * @param {Client} client 
+   * @param {Client} client
    * @param {Message} message
    * @param {String[]} args
    */
@@ -32,76 +28,93 @@ module.exports = {
         const response = await fetch(url);
         const buffer = await response.buffer();
         fs.writeFile(`./image.jpg`, buffer, () =>
-          console.log('Finished downloading the Avatar!'));
-        client.user.setAvatar(`./image.jpg`)
-          .then(user => {
+          console.log("Finished downloading the Avatar!")
+        );
+        client.user
+          .setAvatar(`./image.jpg`)
+          .then((user) => {
             return message.channel.send({
-              embeds: [new MessageEmbed()
-                .setTitle(`${client.allEmojis.y} Successfully changed the Bot Avatar!`)
-                .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
-              ]
+              embeds: [
+                new MessageEmbed()
+                  .setTitle(
+                    `${client.allEmojis.y} Successfully changed the Bot Avatar!`
+                  )
+                  .setColor(ee.color)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon }),
+              ],
             });
           })
-          .catch(e => {
+          .catch((e) => {
             return;
           });
       } else {
         return message.channel.send({
-          embeds: [new MessageEmbed()
-            .setTitle(`${client.allEmojis.x} ERROR | Could not use your Image as an Avatar, make sure it is a \`png\` or \`jpg\``)
-            .setColor(ee.wrongcolor)
-            .setFooter(ee.footertext, ee.footericon)
-          ]
+          embeds: [
+            new MessageEmbed()
+              .setTitle(
+                `${client.allEmojis.x} ERROR | Could not use your Image as an Avatar, make sure it is a \`png\` or \`jpg\``
+              )
+              .setColor(ee.wrongcolor)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon }),
+          ],
         });
       }
     } else if (message.content && textIsImage(message.content)) {
-      url = args.join(" ")
+      url = args.join(" ");
       const response = await fetch(url);
       const buffer = await response.buffer();
       await fs.writeFile(`./image.jpg`, buffer, () =>
-        console.log('finished downloading the Avatar!'));
-      client.user.setAvatar(`./image.jpg`)
-        .then(user => {
+        console.log("finished downloading the Avatar!")
+      );
+      client.user
+        .setAvatar(`./image.jpg`)
+        .then((user) => {
           try {
-            fs.unlinkSync()
-          } catch {
-
-          }
+            fs.unlinkSync();
+          } catch {}
           return message.channel.send({
-            embeds: [new MessageEmbed()
-              .setTitle(`${client.allEmojis.y} Successfully changed the Bot Avatar!`)
-              .setColor(ee.color)
-              .setFooter(ee.footertext, ee.footericon)
-            ]
+            embeds: [
+              new MessageEmbed()
+                .setTitle(
+                  `${client.allEmojis.y} Successfully changed the Bot Avatar!`
+                )
+                .setColor(ee.color)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon }),
+            ],
           });
         })
-        .catch(e => {
+        .catch((e) => {
           return;
         });
-
     } else {
       return message.channel.send({
-        embeds: [new MessageEmbed()
-          .setTitle(`${client.allEmojis.x} ERROR | Could not use your Image as an Avatar, make sure it is a \`png\` or \`jpg\``)
-          .setDescription(`**Usage:** \`${prefix}change-avatar <AVATARLINK/IMAGE>\``)
-          .setColor(ee.wrongcolor)
-          .setFooter(ee.footertext, ee.footericon)
-        ]
+        embeds: [
+          new MessageEmbed()
+            .setTitle(
+              `${client.allEmojis.x} ERROR | Could not use your Image as an Avatar, make sure it is a \`png\` or \`jpg\``
+            )
+            .setDescription(
+              `**Usage:** \`${prefix}change-avatar <AVATARLINK/IMAGE>\``
+            )
+            .setColor(ee.wrongcolor)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon }),
+        ],
       });
     }
-  }
-}
+  },
+};
 
 function attachIsImage(msgAttach) {
-    url = msgAttach.url;
+  url = msgAttach.url;
 
-    //True if this url is a png image.
-    return url.indexOf("png", url.length - "png".length /*or 3*/ ) !== -1 ||
-      url.indexOf("jpeg", url.length - "jpeg".length /*or 3*/ ) !== -1 ||
-      url.indexOf("jpg", url.length - "jpg".length /*or 3*/ ) !== -1;
-  }
+  //True if this url is a png image.
+  return (
+    url.indexOf("png", url.length - "png".length /*or 3*/) !== -1 ||
+    url.indexOf("jpeg", url.length - "jpeg".length /*or 3*/) !== -1 ||
+    url.indexOf("jpg", url.length - "jpg".length /*or 3*/) !== -1
+  );
+}
 
-  function textIsImage(url) {
-    return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
-  }
+function textIsImage(url) {
+  return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
+}

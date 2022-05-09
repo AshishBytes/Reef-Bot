@@ -33,7 +33,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `You must mention a member to tempban with a duraction of time.`
               ),
@@ -44,7 +45,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`The member stated is not in the server.`),
           ],
         });
@@ -53,7 +55,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`This member is not bannable.`),
           ],
         });
@@ -65,7 +68,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `You cannot tempban this member as their role is the same or higher then yours.`
               ),
@@ -76,7 +80,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`You must state a duraction of time.`),
           ],
         });
@@ -88,7 +93,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`You have been banned in ${message.guild.name}`)
               .addField(`Reason: ${reason}`, `Duration ${time}`)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setColor(ee.wrongcolor)
               .setTimestamp(),
           ],
@@ -108,7 +114,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.wrongcolor)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(`This guild does not have any bans.`),
               ],
             });
@@ -122,7 +129,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.color)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(
                     `Your ban has been lifted in ${message.guild.name}.`
                   ),
@@ -148,7 +156,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

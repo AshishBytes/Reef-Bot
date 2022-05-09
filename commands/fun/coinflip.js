@@ -28,7 +28,8 @@ module.exports = {
       message.reply({
         embeds: [
           new MessageEmbed()
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setColor(ee.color)
             .setDescription(
               `${client.allEmojis.y} **${message.member.displayName} Flipped ${result}**!`
@@ -52,7 +53,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

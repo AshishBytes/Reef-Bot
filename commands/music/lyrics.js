@@ -83,7 +83,8 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor(ee.wrongcolor)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setTitle(`Your Voice Channel is full, I can't join!`),
             ],
           });

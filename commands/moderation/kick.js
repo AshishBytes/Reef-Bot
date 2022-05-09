@@ -31,7 +31,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`You need to state a user to kick!`),
           ],
         });
@@ -40,7 +41,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`The member mentioned is not in the server!`),
           ],
         });
@@ -53,7 +55,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} You cannot kick this user as his role is same role of your's or above your current highest role.`
               ),
@@ -68,7 +71,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} I cannot kick this user as his role is the same or higher then mine.`
               ),
@@ -82,7 +86,8 @@ module.exports = {
               .setTitle(`You were kicked from ${message.guild.name}`)
               .setDescription(`Reason: ${reason}`)
               .setColor(ee.color)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setTimestamp()
               .setFooter(client.user.tag, client.user.displayAvatarURL()),
           ],
@@ -99,7 +104,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setDescription(`I was unable to kick the member mentioned.`)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setColor(ee.color),
           ],
         });
@@ -108,7 +114,8 @@ module.exports = {
         embeds: [
           new MessageEmbed()
             .setColor(ee.color)
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setDescription(`Successfully Kicked the member!`),
         ],
       });
@@ -129,7 +136,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

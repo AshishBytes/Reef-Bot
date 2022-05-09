@@ -24,7 +24,10 @@ module.exports = {
       return interaction.reply({
         embeds: [
           new MessageEmbed()
-            .setFooter(client.user.username, client.user.displayAvatarURL())
+            .setFooter({
+              text: client.user.username,
+              iconURL: client.user.displayAvatarURL(),
+            })
             .setAuthor({
               name: `${client.user.username} Help Menu`,
               iconURL: client.user.displayAvatarURL(),

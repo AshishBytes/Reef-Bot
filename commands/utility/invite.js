@@ -35,8 +35,7 @@ module.exports = {
         )
         .setColor(ee.color)
         .setImage(eec.gif)
-        .setFooter(ee.footertext, ee.footericon);
-
+        .setFooter({ text: ee.footertext, iconURL: ee.footericon });
       let supportbutton = new MessageButton()
         .setStyle("LINK")
         .setLabel("Join Support!")
@@ -77,7 +76,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

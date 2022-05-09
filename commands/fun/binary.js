@@ -27,7 +27,7 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
               .setDescription(
                 `${client.allEmojis.m} **Please specify whether you want to \`encode\` or \`decode\`**`
               ),
@@ -42,7 +42,8 @@ module.exports = {
           return message.reply({
             embeds: [
               new MessageEmbed()
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setColor(ee.mediancolor)
                 .setDescription(
                   `${client.allEmojis.m} **Please specify a word to encode**`
@@ -56,7 +57,8 @@ module.exports = {
         message.reply({
           embeds: [
             new MessageEmbed()
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setTitle(`Encoded`)
               .setColor(ee.color)
               .setDescription(data.binary ?? "Ann error occured", {
@@ -70,7 +72,8 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor(ee.mediancolor)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(
                   `${client.allEmojis.m} **Please specify a word to decode**`
                 ),
@@ -83,7 +86,8 @@ module.exports = {
         message.reply({
           embeds: [
             new MessageEmbed()
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setTitle(`Decoded`)
               .setColor(ee.color)
               .setDescription(data.text ?? "Ann error occured", {
@@ -95,7 +99,8 @@ module.exports = {
         return message.reply({
           embeds: [
             new MessageEmbed()
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setColor(ee.wrongcolor)
               .setDescription(
                 `${client.allEmojis.m} **Please specify a valid option.**`
@@ -119,7 +124,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

@@ -36,7 +36,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} Music Request System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`Please mention a channel!`),
           ],
         });
@@ -324,7 +325,8 @@ module.exports = {
               new MessageEmbed()
                 .setTitle(`${client.allEmojis.y} Music Request System`)
                 .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(
                   `${channel} has been set as the **Music Request Channel**`
                 ),

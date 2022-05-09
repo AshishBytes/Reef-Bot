@@ -30,7 +30,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`You must state someone to unban.`),
           ],
         });
@@ -39,7 +40,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`The ID stated is not a number.`),
           ],
         });
@@ -50,7 +52,8 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor(ee.wrongcolor)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(`This server does not have anyone banned`),
             ],
           });
@@ -60,7 +63,8 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor(ee.wrongcolor)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(`The user ID mentioned is not banned`),
             ],
           });
@@ -72,7 +76,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.wrongcolor)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(`Something went wrong unbanning the id.`),
               ],
             });
@@ -82,7 +87,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.color)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(`Successfully Unbanned ${args[0]}`),
               ],
             });
@@ -105,7 +111,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

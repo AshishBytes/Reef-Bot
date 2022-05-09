@@ -32,7 +32,10 @@ module.exports = {
       message.reply({
         embeds: [
           new MessageEmbed()
-            .setFooter(client.user.username, client.user.displayAvatarURL())
+            .setFooter({
+              text: client.user.username,
+              iconURL: client.user.displayAvatarURL(),
+            })
             .setColor(ee.color)
             .setAuthor({
               name: `${client.user.username} Owner Help Menu`,
@@ -65,7 +68,7 @@ module.exports = {
             .setColor("RED")
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

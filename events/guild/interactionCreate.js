@@ -207,7 +207,8 @@ module.exports = {
           new MessageEmbed()
             //.setColor("#FFFF00")
             .setTitle(`${client.allEmojis.x} ERROR | An error occurred`)
-            //.setFooter(ee.footertext, ee.footericon)
+            //              .setFooter({text:ee.footertext,iconURL: ee.footericon})
+
             .setDescription(`\`\`\`${e.message}\`\`\``),
         ],
       });

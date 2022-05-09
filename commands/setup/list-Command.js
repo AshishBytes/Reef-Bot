@@ -33,7 +33,8 @@ module.exports = {
                 new MessageEmbed()
                   .setTitle(`${client.allEmojis.x} Custom Command System`)
                   .setColor(ee.wrongcolorcolor)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(
                     "There is no custom commands for this server!"
                   ),
@@ -47,7 +48,8 @@ module.exports = {
               new MessageEmbed()
                 .setTitle(`${client.allEmojis.y} Custom Command System`)
                 .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(
                   data2
                     .map(
@@ -76,7 +78,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

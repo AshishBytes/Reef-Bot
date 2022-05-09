@@ -30,7 +30,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} AntiLink System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `Please mention a channel to set the logging of the AntiLink!`
               ),
@@ -55,7 +56,7 @@ module.exports = {
               new MessageEmbed()
                 .setTitle(`${client.allEmojis.y} AntiLink System`)
                 .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
                 .setDescription(`AntiLink is Enabled in this Server!
 ${channel} has been set as the **AntiLink Logging Channel**`),
             ],
@@ -80,7 +81,7 @@ ${channel} has been set as the **AntiLink Logging Channel**`),
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

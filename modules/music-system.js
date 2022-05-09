@@ -567,7 +567,8 @@ module.exports = async (client) => {
                   new MessageEmbed()
                     .setTitle(`${client.allEmojis.x} Music Menu System`)
                     .setColor(ee.wrongcolor)
-                    .setFooter(ee.footertext, ee.footericon)
+                    .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                     .setDescription(`No __Music Menu Channel__ Found`),
                 ],
                 ephemeral: true,

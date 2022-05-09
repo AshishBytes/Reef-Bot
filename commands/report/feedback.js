@@ -27,7 +27,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`Please mention the feedback!`),
           ],
         });
@@ -36,7 +37,8 @@ module.exports = {
         embeds: [
           new MessageEmbed()
             .setColor(ee.color)
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setDescription(
               `✉ | ${message.author.username}, Thanks for the feedback!`
             ),
@@ -57,12 +59,12 @@ module.exports = {
               `**Author:**\n> ${message.author.username} | (${message.author.id})\n**Feedback:**\n> ${msg}`
             )
             .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
-            .setFooter(
-              `Feedback From: ${message.guild.name} | (${message.guild.id})`,
-              message.guild.iconURL({
+            .setFooter({
+              text: `Feedback From: ${message.guild.name} | (${message.guild.id})`,
+              iconURL: message.guild.iconURL({
                 dynamic: true,
-              })
-            ),
+              }),
+            }),
         ],
       });
     } catch (e) {
@@ -82,7 +84,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

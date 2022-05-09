@@ -27,7 +27,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`Please specify a suggestion for bot!`),
           ],
         });
@@ -36,7 +37,8 @@ module.exports = {
         embeds: [
           new MessageEmbed()
             .setColor(ee.color)
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setDescription(
               `✉ | ${message.author.username}, Thanks for the suggestion! :)`
             ),
@@ -58,12 +60,12 @@ module.exports = {
                 `**Author:**\n> ${message.author.username} | (${message.author.id})\n**Suggestion:**\n> ${msg}`
               )
               .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
-              .setFooter(
-                `Suggested From: ${message.guild.name} | (${message.guild.id})`,
-                message.guild.iconURL({
+              .setFooter({
+                text: `Suggested From: ${message.guild.name} | (${message.guild.id})`,
+                iconURL: message.guild.iconURL({
                   dynamic: true,
-                })
-              ),
+                }),
+              }),
           ],
         })
         .then((sendMessage) => sendMessage.react(client.allEmojis.y))
@@ -85,7 +87,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

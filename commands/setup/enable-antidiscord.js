@@ -30,7 +30,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} Anti-Invite-Link System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `Please mention a channel to set the logging of the Anti-Invite-Link!`
               ),
@@ -55,7 +56,7 @@ module.exports = {
               new MessageEmbed()
                 .setTitle(`${client.allEmojis.y} Anti-Invite-Link System`)
                 .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
                 .setDescription(`Anti-Invite-Link is Enabled in this Server!
 ${channel} has been set as the **Anti-Invite-Link Logging Channel**`),
             ],
@@ -80,7 +81,7 @@ ${channel} has been set as the **Anti-Invite-Link Logging Channel**`),
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

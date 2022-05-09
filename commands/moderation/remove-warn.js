@@ -30,7 +30,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription("Please mention a member to remove the warns."),
           ],
         });
@@ -48,7 +49,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.color)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(
                     "Successfully Removed 1 Warning for the user."
                   ),
@@ -60,7 +62,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.wrongcolor)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(
                     "This user does not have any warnings in this server!"
                   ),
@@ -86,7 +89,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

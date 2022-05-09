@@ -26,7 +26,8 @@ module.exports = {
         return message.reply({
           embeds: [
             new MessageEmbed()
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setColor(ee.mediancolor)
               .setDescription(
                 `${client.allEmojis.m} **Please supply a search query!**`
@@ -45,7 +46,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.wrongcolor)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(`${client.allEmojis.x} **No gifs found!**`),
               ],
             });

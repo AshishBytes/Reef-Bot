@@ -33,7 +33,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.color)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`${member} messages has been cleared.`),
           ],
         });
@@ -43,7 +44,8 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor(ee.mediancolor)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(
                   `Please specify a number of messages to purge.`
                 ),
@@ -54,7 +56,8 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor(ee.wrongcolor)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(`Number specified is not a valid number.`),
             ],
           });
@@ -67,7 +70,8 @@ module.exports = {
             embeds: [
               new MessageEmbed()
                 .setColor(ee.wrongcolor)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(
                   `The number specified must be between 1 and 99.`
                 ),
@@ -81,7 +85,8 @@ module.exports = {
                 embeds: [
                   new MessageEmbed()
                     .setColor(ee.color)
-                    .setFooter(ee.footertext, ee.footericon)
+                    .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                     .setDescription(
                       `**Succesfully deleted \`${messages.size}/${args[0]}\` messages.**`
                     ),
@@ -111,7 +116,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

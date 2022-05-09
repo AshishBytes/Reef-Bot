@@ -29,7 +29,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.x} Levelup System`)
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`No Levelup Channel`),
           ],
         });
@@ -40,7 +41,8 @@ module.exports = {
           new MessageEmbed()
             .setTitle(`${client.allEmojis.y} Levelup System`)
             .setColor(ee.color)
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setDescription(`**Levelup Channel** has successfully Removed`),
         ],
       });
@@ -61,7 +63,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

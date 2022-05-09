@@ -25,7 +25,8 @@ module.exports = {
         return message.reply({
           embeds: [
             new MessageEmbed()
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setColor(ee.mediancolor)
               .setDescription(
                 `${client.allEmojis.m} **Please ask a question!**`
@@ -85,7 +86,8 @@ module.exports = {
       message.reply({
         embeds: [
           new MessageEmbed()
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setAuthor(`🎱 8Ball!`)
             .setColor(ee.color)
             .addField("Question", question)
@@ -109,7 +111,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

@@ -29,7 +29,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} Levelup System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`Please mention a channel!`),
           ],
         });
@@ -41,7 +42,8 @@ module.exports = {
           new MessageEmbed()
             .setColor(ee.color)
             .setTitle(`${client.allEmojis.y} Levelup System`)
-            .setFooter(ee.footertext, ee.footericon)
+            .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
             .setDescription(`${channel} has been set as the Levelup Channel`),
         ],
       });
@@ -62,7 +64,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

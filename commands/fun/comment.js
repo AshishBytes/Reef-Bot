@@ -33,7 +33,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.m} **Provide something to Comment!**`
               ),
@@ -55,7 +56,8 @@ module.exports = {
         message.reply({
           embeds: [
             new MessageEmbed()
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setTitle(
                 `${client.allEmojis.x} **Something went wrong.**\n**Note : It won't work if the User contains Unwanted characters in his Username.**`
               )
@@ -80,7 +82,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

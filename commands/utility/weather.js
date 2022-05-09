@@ -27,7 +27,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} **Please Enter A Location!**`
               ),
@@ -47,7 +48,8 @@ module.exports = {
               embeds: [
                 new MessageEmbed()
                   .setColor(ee.wrongcolor)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(
                     `${client.allEmojis.x} **Please Enter A Valid Location.**`
                   ),
@@ -82,7 +84,8 @@ module.exports = {
                 .addField("> **Humidity**", `${current.humidity}%`, true)
                 .addField("> **Date**", `${current.date}`, true)
                 .addField("> **Day**", `${current.day}`, true)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setTimestamp(),
             ],
           });
@@ -105,7 +108,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

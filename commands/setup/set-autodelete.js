@@ -33,7 +33,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} AutoDelete System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `Please mention a channel to set the AutoDelete System!`
               ),
@@ -46,7 +47,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} AutoDelete System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `Please mention a delay to deletes the message in the channel!`
               ),
@@ -59,7 +61,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} AutoDelete System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`Please mention a valid delay!`),
           ],
         });
@@ -86,7 +89,8 @@ module.exports = {
               new MessageEmbed()
                 .setTitle(`${client.allEmojis.y} AutoDelete System`)
                 .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(
                   `${channel} has been set as the **AutoDelete Channel** with ${ms(
                     delay
@@ -114,7 +118,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

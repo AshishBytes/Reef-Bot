@@ -37,7 +37,8 @@ module.exports = {
                 new MessageEmbed()
                   .setTitle(`${client.allEmojis.y} Leveling System`)
                   .setColor(ee.color)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(`**Level Toggle** is now: **on**`),
               ],
             });
@@ -51,7 +52,8 @@ module.exports = {
                 new MessageEmbed()
                   .setTitle(`${client.allEmojis.y} Leveling System`)
                   .setColor(ee.color)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(`**Level Toggle** is now: **off**`),
               ],
             });
@@ -63,7 +65,8 @@ module.exports = {
                 new MessageEmbed()
                   .setTitle(`${client.allEmojis.y} Leveling System`)
                   .setColor(ee.color)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(`**Level Toggle** is now: **on**`),
               ],
             });
@@ -87,7 +90,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

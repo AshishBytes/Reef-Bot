@@ -33,7 +33,8 @@ module.exports = {
                 new MessageEmbed()
                   .setTitle(`${client.allEmojis.x} ChatBot System`)
                   .setColor(ee.wrongcolor)
-                  .setFooter(ee.footertext, ee.footericon)
+                  .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                   .setDescription(`No ChatBot Channel Found!`),
               ],
             });
@@ -43,7 +44,8 @@ module.exports = {
               new MessageEmbed()
                 .setTitle(`${client.allEmojis.y} ChatBot System`)
                 .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(`**ChatBot Channel** has successfully Removed`),
             ],
           });
@@ -67,7 +69,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

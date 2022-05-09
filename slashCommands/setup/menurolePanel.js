@@ -1,85 +1,89 @@
 const config = require(`${process.cwd()}/structures/botconfig/config.json`);
 const {
-    Client,
-    CommandInteraction,
-    MessageEmbed,
-    MessageActionRow,
-    MessageSelectMenu
+  Client,
+  CommandInteraction,
+  MessageEmbed,
+  MessageActionRow,
+  MessageSelectMenu,
 } = require("discord.js");
 const rrModel = require(`${process.cwd()}/structures/models/menu-role`);
 
 module.exports = {
-    name: 'menurole-panel',
-    usage: '',
-    description: 'Menu for the MenuRole',
-    category: "setup",
-    cooldown: 0,
-    userPermissions: "MANAGE_ROLES",
-    botPermissions: "MANAGE_ROLES",
-    ownerOnly: false,
-    toggleOff: true,
+  name: "menurole-panel",
+  usage: "",
+  description: "Menu for the MenuRole",
+  category: "setup",
+  cooldown: 0,
+  userPermissions: "MANAGE_ROLES",
+  botPermissions: "MANAGE_ROLES",
+  ownerOnly: false,
+  toggleOff: true,
 
-    /**
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction
-     * @param {String[]} args
-     */
+  /**
+   * @param {Client} client
+   * @param {CommandInteraction} interaction
+   * @param {String[]} args
+   */
 
-    async execute(client, interaction, args, ee) {
-        try {
+  async execute(client, interaction, args, ee) {
+    try {
+      const guildData = await rrModel.findOne({
+        guildId: interaction.guildId,
+      });
 
-            const guildData = await rrModel.findOne({
-                guildId: interaction.guildId
-            });
+      if (!guildData.roles)
+        return interaction.reply({
+          embeds: [
+            new MessageEmbed()
+              .setTitle(`${client.allEmojis.x} MenuRole System`)
+              .setColor(`AQUA`)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
 
-            if (!guildData.roles) return interaction.reply({
-                embeds: [new MessageEmbed()
-                    .setTitle(`${client.allEmojis.x} MenuRole System`)
-                    .setColor(`AQUA`)
-                    .setFooter(ee.footertext, ee.footericon)
-                    .setDescription(`**There is no MenuRole Exist**`)
-                ]
-            });
+              .setDescription(`**There is no MenuRole Exist**`),
+          ],
+        });
 
-            const options = guildData.roles.map((x) => {
-                const role = interaction.guild.roles.cache.get(x.roleId);
+      const options = guildData.roles.map((x) => {
+        const role = interaction.guild.roles.cache.get(x.roleId);
 
-                return {
-                    label: x.MenuName,
-                    value: role.id,
-                    description: x.roleDescription || "No description",
-                    emoji: x.roleEmoji
-                };
-            });
+        return {
+          label: x.MenuName,
+          value: role.id,
+          description: x.roleDescription || "No description",
+          emoji: x.roleEmoji,
+        };
+      });
 
-            const panelEmbed = new MessageEmbed()
-                .setTitle(`${client.allEmojis.y} Please select a role below`)
-                .setColor(`AQUA`)
+      const panelEmbed = new MessageEmbed()
+        .setTitle(`${client.allEmojis.y} Please select a role below`)
+        .setColor(`AQUA`);
 
-            const components = [
-                new MessageActionRow()
-                .addComponents(new MessageSelectMenu()
-                    .setCustomId("reaction-roles")
-                    .setMaxValues(1)
-                    .addOptions(options))
-            ];
+      const components = [
+        new MessageActionRow().addComponents(
+          new MessageSelectMenu()
+            .setCustomId("reaction-roles")
+            .setMaxValues(1)
+            .addOptions(options)
+        ),
+      ];
 
-            interaction.reply({
-                content: `MenuRole is Ready`
-            })
-            interaction.channel.send({
-                embeds: [panelEmbed],
-                components
-            })
-        } catch (err) {
-            console.log(err)
-            return interaction.reply({
-                embeds: [new MessageEmbed()
-                    
-                    .setTitle(`${client.allEmojis.x} Error:`)
-                    .setDescription(err)
-                ]
-            })
-        }
+      interaction.reply({
+        content: `MenuRole is Ready`,
+      });
+      interaction.channel.send({
+        embeds: [panelEmbed],
+        components,
+      });
+    } catch (err) {
+      console.log(err);
+      return interaction.reply({
+        embeds: [
+          new MessageEmbed()
+
+            .setTitle(`${client.allEmojis.x} Error:`)
+            .setDescription(err),
+        ],
+      });
     }
-}
+  },
+};

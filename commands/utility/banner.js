@@ -41,7 +41,8 @@ module.exports = {
             new MessageEmbed()
               .setColor(ee.color)
               .setDescription(`${client.allEmojis.y} **BANNER OF** ${user}`)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setImage(url),
           ],
         });
@@ -50,7 +51,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`${client.allEmojis.x} **User has no Banner**`),
           ],
         });
@@ -72,7 +74,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

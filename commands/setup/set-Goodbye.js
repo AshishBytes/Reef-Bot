@@ -29,7 +29,8 @@ module.exports = {
             new MessageEmbed()
               .setTitle(`${client.allEmojis.m} Goodbye System`)
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`Please mention a channel!`),
           ],
         });
@@ -52,7 +53,8 @@ module.exports = {
               new MessageEmbed()
                 .setTitle(`${client.allEmojis.y} Goodbye System`)
                 .setColor(ee.color)
-                .setFooter(ee.footertext, ee.footericon)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                 .setDescription(
                   `${channel} has been set as the **Goodbye Channel**`
                 ),
@@ -77,7 +79,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

@@ -31,7 +31,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `You must mention a member to change a nickname.`
               ),
@@ -42,7 +43,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`The member mentioned is not in the server.`),
           ],
         });
@@ -51,7 +53,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(`Please mention a nickname for the member.`),
           ],
         });
@@ -60,31 +63,29 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.wrongcolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `I cannot change that members nickname as their roles is higher then mine.`
               ),
           ],
         });
 
-      await mentionedMember
-        .setNickname(nickName)
-        .catch((err) =>
-          console
-            .log(err)
-            .then(
-              message.reply({
-                embeds: [
-                  new MessageEmbed()
-                    .setColor(ee.wrongcolor)
-                    .setFooter(ee.footertext, ee.footericon)
-                    .setDescription(
-                      `Hey I cannot add that nickname due to an error!`
-                    ),
-                ],
-              })
-            )
-        );
+      await mentionedMember.setNickname(nickName).catch((err) =>
+        console.log(err).then(
+          message.reply({
+            embeds: [
+              new MessageEmbed()
+                .setColor(ee.wrongcolor)
+                .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
+                .setDescription(
+                  `Hey I cannot add that nickname due to an error!`
+                ),
+            ],
+          })
+        )
+      );
     } catch (e) {
       console.log(String(e.stack).bgRed);
       const errorLogsChannel = client.channels.cache.get(
@@ -102,7 +103,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

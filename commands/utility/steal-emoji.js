@@ -26,7 +26,8 @@ module.exports = {
           embeds: [
             new MessageEmbed()
               .setColor(ee.mediancolor)
-              .setFooter(ee.footertext, ee.footericon)
+              .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
               .setDescription(
                 `${client.allEmojis.x} Please specify some emojis!`
               ),
@@ -47,7 +48,8 @@ module.exports = {
                 embeds: [
                   new MessageEmbed()
                     .setColor(ee.color)
-                    .setFooter(ee.footertext, ee.footericon)
+                    .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                     .setDescription(
                       `${client.allEmojis.y} Added: \`${emoji.url}\``
                     ),
@@ -59,7 +61,8 @@ module.exports = {
                 embeds: [
                   new MessageEmbed()
                     .setColor(ee.wrongcolor)
-                    .setFooter(ee.footertext, ee.footericon)
+                    .setFooter({ text: ee.footertext, iconURL: ee.footericon })
+
                     .setDescription(
                       `${client.allEmojis.x} Maximum Number of Animated Emojis Reached (50)`
                     ),
@@ -85,7 +88,7 @@ module.exports = {
             })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }

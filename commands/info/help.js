@@ -273,10 +273,10 @@ module.exports = {
         let OverviewEmbed = new MessageEmbed()
           .setColor(ee.color)
 
-          .setFooter(
-            "Thx 2 Milanio Dev Team For Code",
-            `https://images-ext-2.discordapp.net/external/wjzN1Pi7whWSGbXgrA-3YAYUjg8PxPBubBdfNphwGCg/%3Fsize%3D44%26quality%3Dlossless/https/cdn.discordapp.com/emojis/936918365304414219.gif`
-          )
+          .setFooter({
+            text: "Uchiha by Bot Hub™",
+            iconURL: `https://images-ext-2.discordapp.net/external/wjzN1Pi7whWSGbXgrA-3YAYUjg8PxPBubBdfNphwGCg/%3Fsize%3D44%26quality%3Dlossless/https/cdn.discordapp.com/emojis/936918365304414219.gif`,
+          })
           //.setAuthor(`${client.user.username} Help Menu`, client.user.displayAvatarURL())
           .setTitle(`${client.user.username} Help Menu`)
 
@@ -369,10 +369,10 @@ ${client.allEmojis.help.report} Report**`,
                   .edit({
                     embeds: [
                       new MessageEmbed()
-                        .setFooter(
-                          client.user.username,
-                          client.user.displayAvatarURL()
-                        )
+                        .setFooter({
+                          text: client.user.username,
+                          iconURL: client.user.displayAvatarURL(),
+                        })
                         .setColor(ee.color)
                         .setAuthor({
                           name: `${client.user.username} Help Menu`,
@@ -764,12 +764,12 @@ ${client.allEmojis.help.report} Report**`,
               .setColor(ee.color)
               .setImage(eec.gif)
               // .setThumbnail(ee.footericon)
-              .setFooter(
-                `Page ${index + 1} / ${
+              .setFooter({
+                text: `Page ${index + 1} / ${
                   embeds.length
                 }\nTo see command Descriptions and Information, type: ${default_Prefix}help [CMD NAME]`,
-                ee.footericon
-              )
+                iconURL: ee.footericon,
+              })
           );
         });
       }
@@ -790,7 +790,7 @@ ${client.allEmojis.help.report} Report**`,
             .setColor("RED")
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
-            .setFooter(`Having: ${message.guild.memberCount} Users`),
+            .setFooter({ text: `Having: ${message.guild.memberCount} Users` }),
         ],
       });
     }
