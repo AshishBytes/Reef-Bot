@@ -62,7 +62,7 @@ require("events").defaultMaxListeners = 0;
   require(`./handlers/${handler}`)(client);
 });
 
-client.login(config.env.TOKEN);
+client.login(config.env.TOKEN || process.env.TOKEN);
 
 /**
  * @INFO
