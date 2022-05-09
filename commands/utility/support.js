@@ -38,7 +38,7 @@ module.exports = {
         .setStyle("LINK")
         .setLabel("Join Support!")
         .setEmoji("<:join:971243870857875546>")
-        .setURL(process.env.VANITY || config.env.VANITY);
+        .setURL(process.env.SUPPORT || config.env.SUPPORT);
 
       let invitebutton = new MessageButton()
         .setStyle("LINK")
