@@ -32,13 +32,13 @@ module.exports = {
         .setTitle(`❓ You need help? JOIN OUR SUPPORT SERVER`)
         .setColor(ee.color)
         .setImage(eec.gif)
-        .setFooter(ee.footertext, ee.footericon);
+        .setFooter({ text: ee.footertext, iconURL: ee.footericon });
 
       let supportbutton = new MessageButton()
         .setStyle("LINK")
         .setLabel("Join Support!")
         .setEmoji("<:join:971243870857875546>")
-        .setURL(process.env.SUPPORT || config.env.SUPPORT);
+        .setURL(process.env.VANITY || config.env.VANITY);
 
       let invitebutton = new MessageButton()
         .setStyle("LINK")
@@ -66,12 +66,12 @@ module.exports = {
         embeds: [
           new MessageEmbed()
             .setColor("RED")
-            .setAuthor(
-              message.guild.name,
-              message.guild.iconURL({
+            .setAuthor({
+              name: message.guild.name,
+              iconURL: message.guild.iconURL({
                 dynamic: true,
-              })
-            )
+              }),
+            })
             .setTitle(`${client.allEmojis.x} Got a Error:`)
             .setDescription(`\`\`\`${e.stack}\`\`\``)
             .setFooter(`Having: ${message.guild.memberCount} Users`),

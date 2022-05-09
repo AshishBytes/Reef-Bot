@@ -61,7 +61,7 @@ module.exports = {
             (a, b) => a + b.memberCount,
             0
           )} Users`,
-          `${process.env.SUPPORT || config.env.SUPPORT}`,
+          `${process.env.VANITY || config.env.VANITY}`,
         ],
         i = 0;
 
