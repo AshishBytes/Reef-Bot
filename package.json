@@ -3,6 +3,10 @@
   "version": "3.1.0",
   "description": "",
   "main": "./structures/bot.js",
+  "scripts": {
+    "start": "npx node ./structures/bot.js",
+    "dev": "nodemon ./structures/bot.js"
+  },
   "dependencies": {
     "@discordjs/opus": "^0.7.0",
     "@discordjs/voice": "^0.7.5",
@@ -55,9 +59,5 @@
     "weather-js": "^2.0.0",
     "wikijs": "^6.3.2",
     "ytdl-core": "^4.9.2"
-  },
-  "scripts": {
-    "start": "npx node ./structures/bot.js",
-    "dev": "nodemon ./structures/bot.js"
   }
 }
