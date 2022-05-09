@@ -762,7 +762,7 @@ ${client.allEmojis.help.report} Report**`,
           return (
             embed
               .setColor(ee.color)
-              .setImage(eec.gif)
+              .setImage(ee.gif)
               // .setThumbnail(ee.footericon)
               .setFooter({
                 text: `Page ${index + 1} / ${
