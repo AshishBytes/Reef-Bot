@@ -7,7 +7,7 @@ const {
   MessageSelectMenu,
   MessageButton,
 } = require("discord.js");
-const eec = require(`${process.cwd()}/structures/botconfig/embed.json`);
+const ee = require(`${process.cwd()}/structures/botconfig/embed.json`);
 
 module.exports = {
   name: "help",
