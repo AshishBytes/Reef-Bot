@@ -87,7 +87,7 @@ module.exports = {
       message.reply({
         embeds: [
           new MessageEmbed()
-            .setDescription(`Warned ${user} for ${reason}`)
+            .setDescription(`Warned ${user} for **${reason}**`)
             .setFooter({ text: ee.footertext, iconURL: ee.footericon })
             .setColor(ee.color),
         ],
