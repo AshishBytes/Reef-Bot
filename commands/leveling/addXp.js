@@ -23,7 +23,16 @@ module.exports = {
   async execute(client, message, args, ee) {
     const mentionmember =
       message.mentions.members.first() ||
-      message.guild.members.cache.get(args[0]);
+      message.guild.members.cache.get(args[0]) ||
+      message.guild.members.cache.find(
+        (r) =>
+          r.user.username.toLowerCase() === args.join(" ").toLocaleLowerCase()
+      ) ||
+      message.guild.members.cache.find(
+        (r) =>
+          r.displayName.toLowerCase() === args.join(" ").toLocaleLowerCase()
+      ) ||
+      message.member;
     if (!mentionmember)
       return message.reply({
         embeds: [
