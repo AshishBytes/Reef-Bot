@@ -14,7 +14,7 @@ module.exports = {
     userPermissions: "MANAGE_ROLES",
     botPermissions: "MANAGE_ROLES",
     ownerOnly: false,
-    toggleOff: true,
+    toggleOff: false,
     options: [{
             name: "role1",
             description: "Set the first role",

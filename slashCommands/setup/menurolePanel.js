@@ -17,7 +17,7 @@ module.exports = {
   userPermissions: "MANAGE_ROLES",
   botPermissions: "MANAGE_ROLES",
   ownerOnly: false,
-  toggleOff: true,
+  toggleOff: false,
 
   /**
    * @param {Client} client
