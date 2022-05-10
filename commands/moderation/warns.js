@@ -58,7 +58,7 @@ module.exports = {
                           `\`${i + 1}\` | Moderator : ${
                             message.guild.members.cache.get(w.moderator).user
                               .tag
-                          }\nReason : ${w.reason}.join('\n')`
+                          }\nReason : ${w.reason}\n`
                       )}`
                     )
                     .setColor(ee.color),
