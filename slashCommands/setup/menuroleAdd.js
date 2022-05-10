@@ -11,7 +11,7 @@ module.exports = {
   userPermissions: "MANAGE_ROLES",
   botPermissions: "MANAGE_ROLES",
   ownerOnly: false,
-  toggleOff: false,
+  toggleOff: true,
   options: [
     {
       name: "menu-name",
