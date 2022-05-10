@@ -4,7 +4,7 @@
     "PREFIX": "!",
     "VANITY": "discord.gg/bothub",
     "SUPPORT": "https://discord.gg/bothub",
-    "MongoDB_TOKEN": "mongodb+srv://UchihaBot:UchihaBot@cluster0.dgszs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "MongoDB_TOKEN": "mongodb+srv://Uchiha:9qVNyaRiHEFDvBGd@cluster0.dgszs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "INVITE": "https://discord.com/api/oauth2/authorize?client_id=907812589306773524&permissions=1395830160503&scope=bot%20applications.commands",
     "WEBSITE": "https://example.com",
     "google_API": "AIzaSyDId_oN6acZT-UMHTfYEZUgIcl4GVn1s6g",
