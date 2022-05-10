@@ -74,6 +74,9 @@ module.exports = {
           data.save();
         }
       );
+      user.send(
+        `${user}, You have been warned for doing ${reason} in **${message.guild.name}**`
+      );
       message.reply({
         embeds: [
           new MessageEmbed()
