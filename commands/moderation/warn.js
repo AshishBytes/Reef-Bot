@@ -78,7 +78,7 @@ module.exports = {
         embeds: [
           new MessageEmbed()
             .setDescription(
-              `${user}, You have been warned for doing ${reason} in **${message.guild.name}**`
+              `${user}, You have been warned for **${reason}** in **${message.guild.name}**`
             )
             .setFooter({ text: ee.footertext, iconURL: ee.footericon })
             .setColor(ee.color),
