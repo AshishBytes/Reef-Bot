@@ -233,12 +233,12 @@ module.exports = {
                 dynamic: true,
               })
             )
-            .setFooter(
-              message.guild.name,
-              message.guild.iconURL({
+            .setFooter({
+              text: message.guild.name,
+              iconURL: message.guild.iconURL({
                 dynamic: true,
-              })
-            )
+              }),
+            })
             .setImage(
               message.guild.banner
                 ? message.guild.bannerURL({

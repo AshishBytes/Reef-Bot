@@ -66,10 +66,10 @@ client.login(config.env.TOKEN || process.env.TOKEN);
 
 /**
  * @INFO
- * Bot Coded by Zedro#2742 | https://discord.gg/milanio
+ * Bot Coded by - Ashish. 🖤#0257 | https://discord.gg/bothub
  * @INFO
- * Work for Milanio Development | https://discord.gg/milanio
+ * Work for Bot Hub™ Development | https://discord.gg/bothub
  * @INFO
- * Please Mention Us Milanio Development, When Using This Code!
+ * Please Mention Us Bot Hub™ Development, When Using This Code!
  * @INFO
  */
