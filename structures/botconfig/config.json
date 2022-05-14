@@ -1,10 +1,8 @@
 {
   "env": {
-    "TOKEN": "OTcwOTU0OTIwOTY0NTM0MzA0.YnDePA.0u_TtmJiCBn2jKaGO2iwdbgKfkk",
+    "TOKEN": "OTA3ODEyNTg5MzA2NzczNTI0.YYsoWw.3ZDZD7fQmvmIs-bFZj-hd8QY4_Y",
     "PREFIX": "!",
-    "VANITY": "discord.gg/bothub",
-    "SUPPORT": "https://discord.gg/bothub",
-    "MongoDB_TOKEN": "mongodb+srv://Uchiha:9qVNyaRiHEFDvBGd@cluster0.zudh7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "MongoDB_TOKEN": "mongodb+srv://UchihaBot:UchihaBot@cluster0.dgszs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "INVITE": "https://discord.com/api/oauth2/authorize?client_id=907812589306773524&permissions=1395830160503&scope=bot%20applications.commands",
     "WEBSITE": "https://example.com",
     "google_API": "AIzaSyDId_oN6acZT-UMHTfYEZUgIcl4GVn1s6g",
@@ -34,6 +32,7 @@
   "ownerID": [
     "367572336918003712",
     "850938117422448670",
+    "687993171749503062",
     "894341012917477467",
     "780051183918252052",
     "942417302517854280"
