@@ -1,7 +1,7 @@
 {
   "env": {
-    "TOKEN": "OTA3ODEyNTg5MzA2NzczNTI0.YYsoWw.3ZDZD7fQmvmIs-bFZj-hd8QY4_Y",
     "PREFIX": "!",
+    "TOKEN": "OTA3ODEyNTg5MzA2NzczNTI0.YYsoWw.3ZDZD7fQmvmIs-bFZj-hd8QY4_Y",
     "MongoDB_TOKEN": "mongodb+srv://UchihaBot:UchihaBot@cluster0.dgszs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "INVITE": "https://discord.com/api/oauth2/authorize?client_id=907812589306773524&permissions=1395830160503&scope=bot%20applications.commands",
     "VANITY": "discord.gg/bothub",
